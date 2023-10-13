@@ -7,8 +7,8 @@ import { useUserData } from "./UserDataProvider";
 const AddressContext = createContext();
 
 export function AddressProvider({ children }) {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("false");
+  const [, setLoading] = useState(false);
+  const [, setError] = useState("false");
   const { dispatch } = useUserData();
   const [addressForm, setAddressForm] = useState({
     _id: "",

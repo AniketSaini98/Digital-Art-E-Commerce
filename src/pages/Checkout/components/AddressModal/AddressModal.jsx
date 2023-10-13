@@ -10,8 +10,8 @@ import { useAddress } from "../../../../contexts/AddressProvider";
 import { useAuth } from "../../../../contexts/AuthProvider";
 
 export const AddressModal = () => {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("false");
+  const [, setLoading] = useState(false);
+  const [, setError] = useState("false");
   const { auth } = useAuth();
   const { dispatch } = useUserData();
 
@@ -105,7 +105,7 @@ export const AddressModal = () => {
               setIsEdit(false);
             }
           }}
-          className="input-containter"
+          className="input-container"
         >
           <input
             name="name"

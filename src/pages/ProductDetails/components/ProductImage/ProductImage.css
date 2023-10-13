@@ -1,22 +1,5 @@
 /* ProductImage.css */
 
-/* .product-details-image img {
-  width: 90vw;
-  object-fit: cover;
-  height: 65vw;
-  margin-bottom: 50px;
-  margin-top: 30px;
-}
-
-@media (min-width: 768px) {
-  .product-details-image img {
-    width: 50vw;
-    object-fit: cover;
-    height: 500px;
-    margin-top: -70px;
-  }
-} */
-
 .product-details-image {
   display: flex;
   justify-content: center;
@@ -26,8 +9,8 @@
 
 .product-details-image img {
   max-width: 100%;
-  max-height: 100%; /* Add this to ensure the image fits within the container */
-  object-fit: contain; /* Use "contain" to maintain aspect ratio and fit the image within the container */
+  max-height: 100%; 
+  object-fit: contain;
 }
 
 @media (min-width: 768px) {

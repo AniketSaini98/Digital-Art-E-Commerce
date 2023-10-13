@@ -8,7 +8,7 @@ export const HeroSection = () => {
       <div className="hero-heading-container">
         <h1 className="hero-title">Our Bestsellers</h1>
         <h2 className="hero-subtitle">
-          Discover the Heroic Sneaker Line that Transcends Boundaries
+          Discover the Best Art that makes you Smile!
         </h2>
       </div>
     </>

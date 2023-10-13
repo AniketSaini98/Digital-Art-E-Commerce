@@ -1,6 +1,5 @@
 .login-container {
   padding: 2em;
-  /* border: 1px solid rgb(228, 228, 228); */
   width: 350px;
   margin: auto;
   margin-top: 15vh;
@@ -12,7 +11,6 @@
 }
 
 .login-container > h2 {
-  /* border: 1px solid black; */
   text-align: center;
   margin-bottom: 10px;
 }
@@ -25,7 +23,6 @@
 }
 
 .login-container .email-container {
-  /* border: 1px solid black; */
   display: flex;
   flex-flow: column nowrap;
 }
@@ -124,7 +121,6 @@
 }
 
 .login-body > a {
-  /* border: 1px solid black; */
   margin: 0 auto;
   font-size: 0.8rem;
   color: rgb(144, 144, 144);

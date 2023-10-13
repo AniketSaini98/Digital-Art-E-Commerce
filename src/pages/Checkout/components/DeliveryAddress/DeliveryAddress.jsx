@@ -1,8 +1,6 @@
 import "./DeliveryAddress.css";
 import { useUserData } from "../../../../contexts/UserDataProvider";
 import { v4 as uuid } from "uuid";
-import { addOrderService } from "../../../../services/order-services/addOrderService";
-import { clearCartService } from "../../../../services/cart-services/clearCartService";
 
 import React from "react";
 import { toast } from "react-hot-toast";
@@ -15,7 +13,6 @@ export const DeliveryAddress = () => {
   const {
     cartProducts,
     addressList,
-    orders,
     orderDetails: { cartItemsDiscountTotal, orderAddress },
   } = userDataState;
 

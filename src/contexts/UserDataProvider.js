@@ -4,6 +4,7 @@ import {
   useEffect,
   useReducer,
   useState,
+  useCallback,
 } from "react";
 import { addToCartService } from "../services/cart-services/addToCartService";
 import { getCartService } from "../services/cart-services/getCartService";
@@ -23,7 +24,7 @@ const UserDataContext = createContext();
 
 export function UserProvider({ children }) {
   const [cartLoading, setCartLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [, setError] = useState("");
   const [userDataState, dispatch] = useReducer(
     userDataReducer,
     initialUserData
@@ -70,7 +71,7 @@ export function UserProvider({ children }) {
     dispatch({ type: "SET_WISHLIST", payload: response.data.wishlist });
   };
 
-  const getCartProducts = async () => {
+  const getCartProducts = useCallback(async () => {
     try {
       if (auth.isAuth) {
         setCartLoading(true);
@@ -87,7 +88,8 @@ export function UserProvider({ children }) {
     } finally {
       setCartLoading(false);
     }
-  };
+  }, [auth, dispatch, setCartLoading, setError]);
+  
 
   const removeFromCartHandler = async (product) => {
     try {
@@ -115,7 +117,7 @@ export function UserProvider({ children }) {
         const response = await removeFromCartService(product._id, auth.token);
         if (response.status === 200) {
           setCartLoading(false);
-          toast.success(`${product.name} succesfully removed from the cart`);
+          toast.success(`${product.name} successfully removed from the cart`);
           dispatch({ type: "SET_CART", payload: response.data.cart });
         }
       } else {
@@ -188,14 +190,14 @@ export function UserProvider({ children }) {
     }
   };
 
-  const getWishlistProducts = async () => {
+  const getWishlistProducts = useCallback(async () => {
     try {
       const response = await getWishlistService(auth.token);
       dispatch({ type: "SET_WISHLIST", payload: response.data.wishlist });
     } catch (error) {
       console.error(error);
     }
-  };
+  }, [auth, dispatch]);
 
   const removeFromWishlistHandler = async (product) => {
     try {
@@ -268,7 +270,7 @@ export function UserProvider({ children }) {
     }
   };
 
-  const getAddressList = async () => {
+  const getAddressList = useCallback(async () => {
     try {
       setCartLoading(true);
       const response = await getAddressListService(auth.token);
@@ -285,13 +287,13 @@ export function UserProvider({ children }) {
     } finally {
       setCartLoading(false);
     }
-  };
+  }, [auth]);
 
   useEffect(() => {
     getWishlistProducts();
     getCartProducts();
     getAddressList();
-  }, [auth]);
+  }, [auth, getWishlistProducts, getCartProducts, getAddressList]);
 
   return (
     <UserDataContext.Provider

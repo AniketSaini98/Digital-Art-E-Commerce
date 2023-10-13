@@ -15,7 +15,7 @@ const DataContext = createContext();
 export function DataProvider({ children }) {
   const [state, dispatch] = useReducer(dataReducer, initialState);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [, setError] = useState(false);
 
   const getAllSneakers = async () => {
     try {
